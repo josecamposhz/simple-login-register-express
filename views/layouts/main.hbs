@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Final</title>
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+  <script src="/axios/axios.min.js"></script>
+  <script>
+    axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
+    console.log(axios.defaults.headers)
+  </script>
+  {{!-- axios => comunicarnos con nuestro servidor --}}
+  {{!-- // axios.defaults.baseURL = 'http://localhost:3001'; --}}
+  {{!-- // Inyectar el token al header authorization
+  --}}
+
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  {{> Navbar}}
+  <main class="container">
+    {{{ body }}}
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<h1>Vista privada</h1>
+
+<script>
+  if (!localStorage.getItem("token")) {
+    window.location.replace("/login");
+  }
+
+  async function getUsers() {
+    const { data } = axios.get('/api/users');
+    console.log(data);
+  }
+  getUsers();
+</script>

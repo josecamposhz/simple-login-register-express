@@ -1,0 +1,38 @@
+<h1>Registro</h1>
+
+<form id="registerForm">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" name="email">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+
+  <button type="submit" class="btn btn-warning">Volver</button>
+  <button type="submit" class="btn btn-primary">Registrarme</button>
+</form>
+
+<script>
+  document.getElementById("registerForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    let [email, password] = document.querySelectorAll("input");
+    // const form = document.getElementById('registerForm');
+    // const data = new FormData(form);
+
+    try {
+      const response = await axios.post('/api/users', {
+        email: email.value,
+        password: password.value
+      });
+      alert("Usuario creado con éxito");
+      window.location.href = '/login'
+      console.log(response.data);
+    } catch (e) {
+      alert(e.response.data);
+    }
+  });
+</script>
